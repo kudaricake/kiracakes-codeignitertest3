@@ -1,0 +1,4 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title><?= esc($title) ?></title></head><body><h1><?= esc($title) ?></h1>
+<?php if ($validation && $validation->getErrors()): ?><ul><?php foreach ($validation->getErrors() as $error): ?><li><?= esc($error) ?></li><?php endforeach; ?></ul><?php endif; ?>
+<form method="post"><?= csrf_field() ?><label>Full Name</label><br><input name="full_name" required value="<?= old('full_name', $customer['full_name'] ?? '') ?>"><br><br><label>Email</label><br><input type="email" name="email" required value="<?= old('email', $customer['email'] ?? '') ?>"><br><br><label>Phone</label><br><input name="phone" value="<?= old('phone', $customer['phone'] ?? '') ?>"><br><br><button type="submit">Save Customer</button></form><p><a href="<?= base_url('accounts/customers') ?>">Back</a></p></body></html>
